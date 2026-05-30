@@ -5,8 +5,18 @@ import { defineConfig } from "vite";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
+function removeCrossoriginPlugin() {
+  return {
+    name: "remove-crossorigin",
+    transformIndexHtml(html) {
+      return html.replaceAll(" crossorigin", "");
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [tailwindcss(), react()],
+  base: "./",
+  plugins: [tailwindcss(), react(), removeCrossoriginPlugin()],
   resolve: {
     alias: {
       "@": `${__dirname}/src`,
