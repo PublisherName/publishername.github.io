@@ -5,9 +5,9 @@ export const projects: Project[] = [
     title: "MeroCoffee",
     description:
       "A 'Buy Me a Coffee' platform for Nepali creators with Esewa, PayPal, and Stripe payments. Includes auth, analytics, Redis caching, and role-based access control.",
-    image: "/assets/img/projects/mero-coffee.jpg",
+    image: "/assets/img/projects/mero-coffee.png",
     tags: ["Django", "PostgreSQL", "Redis", "PayPal", "Stripe"],
-    url: "https://github.com/PublisherName/mero-coffee",
+    url: "https://publishername.pythonanywhere.com/",
   },
   {
     title: "Nepali Calendar Extension",
