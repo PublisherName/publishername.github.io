@@ -2121,6 +2121,44 @@ details[open] > .ide-more-summary i {
 }
 
 @media (max-width: 640px) {
+  .side-socials {
+    bottom: 0.85rem;
+    display: flex;
+    z-index: 40;
+    gap: 0.7rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+  }
+
+  .side-socials--right {
+    right: 0.45rem;
+    flex-direction: column;
+  }
+
+  .side-socials--left {
+    left: 0.45rem;
+    flex-direction: column;
+  }
+
+  .side-socials--left a {
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .side-socials--left a:hover {
+    transform: rotate(180deg) translateY(-2px);
+  }
+
+  .side-socials__line {
+    display: block;
+    height: 3.5rem;
+  }
+
   .hero-section {
     align-items: flex-start;
   }
