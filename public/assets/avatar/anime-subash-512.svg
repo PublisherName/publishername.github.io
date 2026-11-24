@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Anime-style illustration of Subash Ghimire, software engineer">
+  <title>Anime-style illustration of Subash Ghimire, software engineer</title>
+  <defs>
+    <radialGradient id="sq-bg" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#134e4a" stop-opacity="0.85"/>
+      <stop offset="55%" stop-color="#1e1b4b" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sq-hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="sq-hoodie" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="sq-skin" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#ffe4cf"/>
+      <stop offset="100%" stop-color="#e8b98f"/>
+    </linearGradient>
+    <linearGradient id="sq-shirt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="sq-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur std-deviation="18"/>
+    </filter>
+  </defs>
+  <g transform="translate(56 26)">
+    <circle cx="200" cy="220" r="178" fill="url(#sq-bg)"/>
+    <circle cx="92" cy="126" r="46" fill="#2dd4bf" opacity="0.16" filter="url(#sq-glow)"/>
+    <circle cx="312" cy="120" r="52" fill="#a78bfa" opacity="0.16" filter="url(#sq-glow)"/>
+    <g font-family="ui-monospace, monospace">
+      <text x="38" y="132" fill="#2dd4bf" font-size="30" opacity="0.6">{</text>
+      <text x="330" y="164" fill="#a78bfa" font-size="30" opacity="0.6">}</text>
+      <text x="46" y="286" fill="#2dd4bf" font-size="19" opacity="0.45">&lt;/&gt;</text>
+      <text x="314" y="304" fill="#a78bfa" font-size="19" opacity="0.45">{ }</text>
+      <circle cx="58" cy="212" r="2.5" fill="#2dd4bf" opacity="0.7"/>
+      <circle cx="340" cy="238" r="2.5" fill="#a78bfa" opacity="0.7"/>
+    </g>
+    <path d="M44 460C56 380 92 340 148 326L252 326C308 340 344 380 356 460Z" fill="url(#sq-hoodie)"/>
+    <path d="M148 326L200 386L252 326L236 316L200 350L164 316Z" fill="url(#sq-shirt)"/>
+    <path d="M126 350C132 392 162 414 200 414C238 414 268 392 274 350" fill="none" stroke="#334155" stroke-width="12" stroke-linecap="round"/>
+    <rect x="112" y="338" width="26" height="44" rx="12" fill="#1e293b" stroke="#475569"/>
+    <rect x="262" y="338" width="26" height="44" rx="12" fill="#1e293b" stroke="#475569"/>
+    <path d="M178 274H222V338H178Z" fill="url(#sq-skin)"/>
+    <ellipse cx="136" cy="212" rx="13" ry="21" fill="#e8b98f"/>
+    <ellipse cx="264" cy="212" rx="13" ry="21" fill="#e8b98f"/>
+    <path d="M140 156C140 100 168 72 200 72C232 72 260 100 260 156V228C260 274 232 304 200 304C168 304 140 274 140 228Z" fill="url(#sq-skin)"/>
+    <path d="M132 180C126 104 160 62 205 64C252 66 276 104 270 176C258 150 244 134 226 126C205 150 168 162 140 154Z" fill="url(#sq-hair)"/>
+    <path d="M140 154C158 162 190 156 214 136C226 126 236 116 244 104" fill="none" stroke="#2dd4bf" stroke-width="2" opacity="0.35"/>
+    <path d="M246 96C264 116 272 142 270 172" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.4"/>
+    <ellipse cx="171" cy="205" rx="12" ry="10" fill="#f8fafc" opacity="0.9"/>
+    <ellipse cx="229" cy="205" rx="12" ry="10" fill="#f8fafc" opacity="0.9"/>
+    <circle cx="172" cy="205" r="5" fill="#92400e"/>
+    <circle cx="230" cy="205" r="5" fill="#92400e"/>
+    <circle cx="173" cy="203" r="1.6" fill="#fef3c7"/>
+    <circle cx="231" cy="203" r="1.6" fill="#fef3c7"/>
+    <path d="M148 180C158 174 170 174 179 179M221 179C230 174 242 174 252 180" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
+    <path d="M199 216L196 232H204" fill="none" stroke="#a56a4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M184 254C192 262 208 262 216 254" fill="none" stroke="#7c3f2e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M140 178C140 118 166 82 200 74" fill="none" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  </g>
+</svg>
