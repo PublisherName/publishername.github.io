@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Phosphor";
+  src: url("/assets/fonts/Phosphor.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.ph {
+  font-family: "Phosphor", sans-serif !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ph.ph-folder-open:before {
+  content: "\e256";
+}
+.ph.ph-map-pin:before {
+  content: "\e316";
+}
+.ph.ph-arrow-up-right:before {
+  content: "\e092";
+}
+.ph.ph-list:before {
+  content: "\e2f0";
+}
+.ph.ph-x:before {
+  content: "\e4f6";
+}
+.ph.ph-download-simple:before {
+  content: "\e20c";
+}
+.ph.ph-terminal-window:before {
+  content: "\eae8";
+}
+.ph.ph-envelope:before {
+  content: "\e214";
+}
+.ph.ph-github-logo:before {
+  content: "\e576";
+}
+.ph.ph-linkedin-logo:before {
+  content: "\e2ee";
+}
+.ph.ph-git-branch:before {
+  content: "\e278";
+}
+.ph.ph-file-code:before {
+  content: "\e914";
+}
+.ph.ph-arrow-square-out:before {
+  content: "\e5de";
+}
+.ph.ph-caret-right:before {
+  content: "\e13a";
+}
+.ph.ph-arrow-down-right:before {
+  content: "\e042";
+}

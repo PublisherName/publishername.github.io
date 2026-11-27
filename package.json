@@ -5,7 +5,7 @@
   "packageManager": "pnpm@10.10.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "check": "biome check --write .",
     "lint": "biome lint .",
@@ -15,7 +15,6 @@
   "dependencies": {
     "@fontsource/jetbrains-mono": "^5.2.5",
     "@fontsource/space-grotesk": "^5.2.5",
-    "motion": "^12.10.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

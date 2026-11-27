@@ -1,77 +1,43 @@
+import { Reveal } from "@/components/Reveal";
 import type { SkillGroup } from "@/types";
-import { motion } from "motion/react";
 import { useState } from "react";
 
-function SkillIcon({ item }: { item: { name: string; slug: string } }) {
-  const [broken, setBroken] = useState(false);
+interface SkillItem {
+  name: string;
+  slug: string;
+}
 
-  if (!item.slug) {
+function SkillIcon({ item }: { item: SkillItem }) {
+  const [broken, setBroken] = useState(false);
+  const initials = item.name
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
+    .slice(0, 3);
+
+  if (!item.slug || broken) {
     return (
-      <div className="flex flex-col items-center gap-1.5">
-        <span className="w-8 h-8 flex items-center justify-center font-mono text-[10px] font-semibold text-zinc-400 light:text-zinc-600 rounded-lg bg-zinc-800/60 light:bg-zinc-200/60 uppercase tracking-tight">
-          {item.name
-            .split(" ")
-            .map((w) => w[0])
-            .join("")
-            .slice(0, 3)}
-        </span>
-        <span className="font-mono text-[10px] text-zinc-500 leading-none">{item.name}</span>
+      <div className="skill-badge">
+        <span className="skill-badge__icon skill-badge__initials">{initials}</span>
+        <span className="skill-badge__name">{item.name}</span>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col items-center gap-1.5">
-      {broken ? (
-        <span className="w-8 h-8 flex items-center justify-center font-mono text-[10px] font-semibold text-zinc-400 light:text-zinc-600 rounded-lg bg-zinc-800/60 light:bg-zinc-200/60 uppercase tracking-tight">
-          {item.name
-            .split(" ")
-            .map((w) => w[0])
-            .join("")
-            .slice(0, 3)}
-        </span>
-      ) : (
+    <div className="skill-badge">
+      <span className="skill-badge__icon">
         <img
-          src={`https://cdn.simpleicons.org/${item.slug}/white`}
-          alt={item.name}
-          className="h-8 brightness-90 skill-icon"
+          src={`/assets/icons/${item.slug}.svg`}
+          alt=""
+          aria-hidden="true"
+          className="skill-icon"
           loading="lazy"
           onError={() => setBroken(true)}
         />
-      )}
-      <span className="font-mono text-[10px] text-zinc-500 leading-none">{item.name}</span>
+      </span>
+      <span className="skill-badge__name">{item.name}</span>
     </div>
-  );
-}
-
-function SkillCard({
-  group,
-  delay,
-}: {
-  group: SkillGroup;
-  delay: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{
-        duration: 0.6,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className="bg-zinc-900/40 light:bg-zinc-100/80 p-5 rounded-2xl hover:bg-zinc-900/60 light:hover:bg-zinc-200/60 transition-colors light:shadow-sm light:shadow-zinc-900/5"
-    >
-      <h3 className="font-display text-xs font-semibold text-zinc-300 light:text-zinc-700 mb-4 uppercase tracking-wider">
-        {group.title}
-      </h3>
-      <div className="flex flex-wrap gap-4 items-center">
-        {group.items.map((item) => (
-          <SkillIcon key={item.name} item={item} />
-        ))}
-      </div>
-    </motion.div>
   );
 }
 
@@ -79,26 +45,58 @@ interface SkillsProps {
   skillGroups: SkillGroup[];
 }
 
+function groupPath(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 export function Skills({ skillGroups }: SkillsProps) {
   return (
-    <section id="skills" className="pt-24 pb-28 md:pt-32 md:pb-36">
+    <section
+      id="skills"
+      className="pt-24 pb-28 md:pt-32 md:pb-36 border-t border-zinc-800/50 light:border-zinc-200/50"
+    >
       <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 light:text-zinc-500 mb-3">
-            Toolbox
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 light:text-zinc-900">
-            The stack I reach for
-          </h2>
-        </motion.div>
-        <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+        <Reveal>
+          <div className="skills-heading">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-emerald-400 mb-3">
+                03 / Toolchain
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100 light:text-zinc-900">
+                The stack I reach for
+              </h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-500 light:text-zinc-600">
+                Backend, frontend, APIs, and delivery tools I use to take products from first commit
+                to production.
+              </p>
+            </div>
+            <span className="skills-badge">
+              {String(skillGroups.length).padStart(2, "0")} core areas
+            </span>
+          </div>
+        </Reveal>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group, i) => (
-            <SkillCard key={group.title} group={group} delay={i * 0.1} />
+            <Reveal key={group.title} delay={i * 70} className="h-full">
+              <div className="skill-group-card">
+                <div className="skill-group-card__head">
+                  <span>
+                    <i className="ph ph-terminal-window" />
+                    ~/stack/{groupPath(group.title)}
+                  </span>
+                  <span>{String(group.items.length).padStart(2, "0")}</span>
+                </div>
+                <p className="skill-group-card__title">{group.title}</p>
+                <div className="skill-group-card__items">
+                  {group.items.map((item) => (
+                    <SkillIcon key={item.name} item={item} />
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

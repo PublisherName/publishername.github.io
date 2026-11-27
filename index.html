@@ -4,24 +4,174 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.remove("light");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        root.classList.add("preload-reduced");
+      } else {
+        root.classList.add("js-motion");
+      }
+      try {
+        if (sessionStorage.getItem("portfolio-preloaded") === "1") root.classList.add("preload-seen");
+      } catch (error) {}
+    })();
+  </script>
+  <style>
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      background: #09090b;
+      color: #e4e4e7;
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, visibility 0s 0.5s;
+      will-change: transform, opacity;
+    }
+    .preload-seen .preloader {
+      display: none;
+    }
+    .preload-finished .preloader {
+      transform: translate3d(0, -100%, 0);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .preload-reduced .preloader {
+      transition: opacity 0.2s ease, visibility 0s 0.2s;
+    }
+    .preload-reduced .preload-finished .preloader {
+      transform: none;
+    }
+    .preloader__panel {
+      width: min(90vw, 420px);
+    }
+    .preloader__prompt {
+      margin: 0 0 1.25rem;
+      color: #6ee7b7;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .preloader__lines {
+      min-height: 6.5rem;
+    }
+    .preloader__line {
+      margin: 0 0 0.45rem;
+      min-height: 1.25rem;
+      color: #a1a1aa;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre;
+    }
+    .preloader__line:last-child {
+      color: #6ee7b7;
+    }
+    .boot-char {
+      display: inline-block;
+      opacity: 0;
+      transform: translate3d(0, 0.35em, 0);
+      animation: boot-char 0.2s ease forwards;
+      animation-delay: var(--delay, 0s);
+    }
+    .preloader__bar {
+      height: 2px;
+      margin-top: 1.5rem;
+      overflow: hidden;
+      background: #27272a;
+    }
+    .preloader__bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, #10b981, #8b5cf6);
+      transform: scaleX(0);
+      transform-origin: left center;
+      animation: boot-bar 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
+    }
+    .preloader__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.9rem;
+      color: #52525b;
+      font-size: 0.6875rem;
+    }
+    .preloader__skip {
+      border: 0;
+      background: none;
+      color: #a1a1aa;
+      font: inherit;
+      cursor: pointer;
+      padding: 0.25rem 0;
+    }
+    .preloader__skip:hover {
+      color: #6ee7b7;
+    }
+    .preloader__caret {
+      display: inline-block;
+      animation: pre-caret 1s step-end infinite;
+    }
+    @keyframes boot-char {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    @keyframes boot-bar {
+      to {
+        transform: scaleX(1);
+      }
+    }
+    @keyframes pre-caret {
+      50% {
+        opacity: 0;
+      }
+    }
+    .preload-reduced .boot-char,
+    .preload-reduced .preloader__caret {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .preload-reduced .preloader__bar span {
+      animation: none;
+      transform: scaleX(1);
+    }
+  </style>
+  <noscript><style>.preloader{display:none!important}</style></noscript>
+
   <title>Subash Ghimire - Full-Stack Developer | Django, React, PostgreSQL</title>
-  <meta name="description" content="Full-stack developer building with Django, React, and PostgreSQL. Creator of MeroCoffee, Nepali Calendar GNOME Extension, and more." />
+  <meta name="description" content="Full-stack engineer in Nepal building Django, React, and PostgreSQL products, payment integrations, and published GNOME extensions." />
   <meta name="keywords" content="Subash Ghimire, full-stack developer, Django, React, PostgreSQL, Nepal, web developer, Python, MeroCoffee" />
   <meta name="author" content="Subash Ghimire" />
   <link rel="canonical" href="https://subashghimire.info.np/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Subash Ghimire — Full-Stack Developer" />
-  <meta property="og:description" content="Full-stack developer building with Django, React, and PostgreSQL." />
+  <meta property="og:title" content="Subash Ghimire — Full-Stack Engineer" />
+  <meta property="og:description" content="Full-stack engineer in Nepal building Django, React, and PostgreSQL products, payment integrations, and published GNOME extensions." />
   <meta property="og:url" content="https://subashghimire.info.np/" />
-  <meta property="og:image" content="https://subashghimire.info.np/assets/img/subash_ghimire.jpeg" />
+  <meta property="og:image" content="https://subashghimire.info.np/assets/avatar/anime-subash-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta
+    property="og:image:alt"
+    content="Anime-style illustration of Subash Ghimire, software engineer"
+  />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Subash Ghimire — Full-Stack Developer" />
-  <meta name="twitter:description" content="Full-stack developer building with Django, React, and PostgreSQL." />
-  <meta name="twitter:image" content="https://subashghimire.info.np/assets/img/subash_ghimire.jpeg" />
+  <meta name="twitter:title" content="Subash Ghimire — Full-Stack Engineer" />
+  <meta name="twitter:description" content="Full-stack engineer in Nepal building Django, React, and PostgreSQL products, payment integrations, and published GNOME extensions." />
+  <meta name="twitter:image" content="https://subashghimire.info.np/assets/avatar/anime-subash-og.png" />
+  <meta
+    name="twitter:image:alt"
+    content="Anime-style illustration of Subash Ghimire, software engineer"
+  />
 
-  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/avatar/subash-real-favicon.png" />
+  <link rel="alternate icon" href="/favicon.ico" />
 
   <script type="application/ld+json">
     {
@@ -29,9 +179,9 @@
       "@type": "Person",
       "name": "Subash Ghimire",
       "url": "https://subashghimire.info.np",
-      "image": "https://subashghimire.info.np/assets/img/subash_ghimire.jpeg",
-      "jobTitle": "Full-Stack Developer",
-      "email": "subashghimire325@gmail.com",
+      "image": "https://subashghimire.info.np/assets/avatar/anime-subash-og.png",
+      "jobTitle": "Full-Stack Engineer",
+      "email": "info@subashghimire.info.np",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Ilam",
@@ -45,18 +195,63 @@
     }
   </script>
 
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T8XTZHN');</script>
   <!-- End Google Tag Manager -->
 </head>
 <body>
+  <div class="preloader" id="preloader">
+    <div class="preloader__panel">
+      <p class="preloader__prompt">~/portfolio <span class="preloader__caret">_</span></p>
+      <div class="preloader__lines">
+        <p class="preloader__line" data-boot="> initializing portfolio..."></p>
+        <p class="preloader__line" data-boot="> connecting to database..."></p>
+        <p class="preloader__line" data-boot="> loading APIs..."></p>
+        <p class="preloader__line" data-boot="> ready."></p>
+      </div>
+      <div class="preloader__bar"><span></span></div>
+      <div class="preloader__footer">
+        <span>SUBASH.GHIMIRE // BOOT</span>
+        <button class="preloader__skip" id="skip-preloader" type="button">Skip</button>
+      </div>
+    </div>
+  </div>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8XTZHN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <div id="root"></div>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      if (root.classList.contains("preload-seen")) return;
+
+      document.querySelectorAll("[data-boot]").forEach(function (line, lineIndex) {
+        var text = line.getAttribute("data-boot") || "";
+        line.textContent = "";
+        text.split("").forEach(function (char, charIndex) {
+          var span = document.createElement("span");
+          span.className = "boot-char";
+          span.textContent = char === " " ? "\u00a0" : char;
+          span.style.setProperty("--delay", 0.05 + lineIndex * 0.27 + charIndex * 0.012 + "s");
+          line.appendChild(span);
+        });
+      });
+
+      var finished = false;
+      function finish() {
+        if (finished) return;
+        finished = true;
+        root.classList.add("preload-finished");
+        try {
+          sessionStorage.setItem("portfolio-preloaded", "1");
+        } catch (error) {}
+      }
+
+      document.getElementById("skip-preloader").addEventListener("click", finish);
+      window.setTimeout(finish, root.classList.contains("preload-reduced") ? 300 : 1250);
+    })();
+  </script>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

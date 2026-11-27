@@ -4,11 +4,19 @@ export interface Project {
   image: string;
   tags: string[];
   url?: string;
+  repoUrl?: string;
+  impact: string;
+  details?: string;
+  role?: string;
+  problem?: string;
+  more?: boolean;
 }
 
 export interface Experience {
   title: string;
   company: string;
+  logo?: string;
+  logoAlt?: string;
   location: string;
   period: string;
   description: string[];
@@ -32,6 +40,12 @@ export interface SkillGroup {
 export interface NavLink {
   label: string;
   href: string;
+}
+
+export interface Stat {
+  label: string;
+  value: number;
+  suffix?: string;
 }
 
 export interface ContactInfo {

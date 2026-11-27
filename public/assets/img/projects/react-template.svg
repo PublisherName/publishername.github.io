@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#18181b"/><stop offset="100%" stop-color="#09090b"/></linearGradient></defs>
+  <rect width="1200" height="750" fill="url(#g)"/>
+  <rect x="48" y="48" width="1104" height="654" rx="24" fill="#111113" stroke="#27272a"/>
+  <rect x="48" y="48" width="1104" height="56" rx="24" fill="#18181b"/>
+  <rect x="48" y="80" width="1104" height="24" fill="#18181b"/>
+  <circle cx="84" cy="76" r="8" fill="#71717a"/><circle cx="112" cy="76" r="8" fill="#71717a"/><circle cx="140" cy="76" r="8" fill="#71717a"/>
+  <text x="600" y="360" text-anchor="middle" font-family="monospace" font-size="52" fill="#e4e4e7">React Template</text>
+  <text x="600" y="420" text-anchor="middle" font-family="monospace" font-size="28" fill="#60a5fa">React · TypeScript · Vite · TanStack</text>
+  <text x="96" y="640" font-family="monospace" font-size="22" fill="#52525b">~/projects/react-template</text>
+</svg>
